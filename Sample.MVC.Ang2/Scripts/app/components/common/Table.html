@@ -1,0 +1,25 @@
+﻿<table class="table table-bordered table-hover table-fixed">
+    <thead>
+        <tr>
+            <th *ngFor="let header of tableColumns">
+                <div>
+                    <label>{{header.title}}</label>
+                    <span class="glyphicon glyphicon-sort-by-attributes pull-right" *ngIf="sortOrder=='dsc'" (click)="sort({sortBy:header.datafield,sortOrder:'asc'})"></span>
+                    <span class="glyphicon glyphicon-sort-by-attributes-alt pull-right" *ngIf="sortOrder=='asc'" (click)="sort({sortBy:header.datafield,sortOrder:'dsc'})"></span>
+                </div>
+                <div *ngIf="isRowFilterEnable">
+                    <input type="text" class="form-control" (keyup)="filter({filterType:header.datafield,filterValue:$event.target.value})" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataRow of dataTable | orderBy:sortBy:sortOrder | filterBy:filterType:filterValue" (click)="rowClick(dataRow)">
+            <td *ngFor="let dataColumn of dataRow | keys" (click)="cellClick(dataRow,dataColumn.key)" [innerHTML]="render(dataRow[dataColumn.key],dataColumn.key)" [style.width.%]="getColumnWidth(dataColumn.key)" [hidden]="checkIsColumnHide(dataColumn.key)">
+                {{dataColumn.value}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="panel-footer table-footer">
+</div>

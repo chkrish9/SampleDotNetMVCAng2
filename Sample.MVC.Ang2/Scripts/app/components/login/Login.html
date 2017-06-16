@@ -1,0 +1,46 @@
+﻿<form #user="ngForm" (ngSubmit)="login(user)" novalidate>
+    <div class="container-fluid">
+        <div class="login-form ">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div class="login-panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Login</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12 form-group">
+                                    <label><b>Login Id</b></label>
+                                    <input type="text" name="username" #username="ngModel"  required class="form-control" ngModel />
+                                    <div *ngIf="username.errors && (username.dirty || username.touched) " class="error">
+                                        <div [hidden]="!username.errors.required">
+                                            <b>Please enter username</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 form-group">
+                                    <label><b>Password</b></label>
+                                    <input type="password" name="password" #password="ngModel" required class="form-control" ngModel/>
+                                    <div *ngIf="password.errors && (password.dirty || password.touched) " class="error">
+                                        <div [hidden]="!password.errors.required">
+                                            <b>Please enter password</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-4 form-group">
+                                    <input type="submit" [disabled]="!user.form.valid" value="Login" id="btnLogin" class="btn btn-primary width100per"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="panel-footer">
+                            <div class="col-xs-12 input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                @Html.DropDownList("ddlLanguageList", @ViewBag.LanguageLists as IEnumerable<SelectListItem>, new { @id = "ddlLanguageList", @class = "form-control input-sm footer-select" })
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

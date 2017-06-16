@@ -1,0 +1,288 @@
+﻿@charset "utf-8";
+/* --------Begin - Import -----------*/
+@import "../bootstrap/bootstrap";
+/* --------End - Import -----------*/
+
+/* --------Begin - Variable Declarations -----------*/
+//General
+$images-repository: "../../images/web/app/";
+$fontsize: 12px;
+$header-fontsize: 14px;
+$header-menu-border: 1px solid #0361B6;
+$content-bg: #F9F9F9;
+
+//Layout
+$menu-text-color: #E3EAF1;
+
+/* --------End - Variable Declarations -----------*/
+
+/* --------Begin - Mixin Declarations -----------*/
+
+
+@mixin page-font() {
+    font-family: Arial !important;
+    font-size: $fontsize !important;
+    font-weight: normal;
+}
+
+@mixin headermenu-hover-focus() {
+    color: #FFF;
+    @include linear-gradient(#002346, #002346);
+}
+
+@mixin linear-gradient($from, $to) {
+    background-image: -webkit-linear-gradient(top, $from 0%, $to 100%);
+    background-image: -o-linear-gradient(top, $from 0%, $to 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: linear-gradient(to bottom, $from 0%, $to 100%);
+}
+
+@mixin liner-gradient3($one,$two,$three) {
+    background: -webkit-linear-gradient($one,$two,$three); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($one,$two,$three); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($one,$two,$three); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($one,$two,$three); /* Standard syntax (must be last) */
+}
+
+@mixin glyphicon-icon($imagename) {
+    background-image: url($images-repository+$imagename);
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    background-size: 100%;
+    margin-top: -1px;
+    margin-left: -5px;
+}
+
+@mixin page-title() {
+    color: #F57700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px !important;
+    background-repeat: no-repeat;
+    padding-bottom: 3px;
+
+    .entity {
+        font-weight: bold;
+        font-size: $header-fontsize;
+        color: #F57700 !important;
+        margin-left: 20px;
+    }
+
+    .instance {
+        color: #00559B;
+    }
+
+    .page-description {
+        color: #333333;
+        display: block;
+        margin-left: 20px;
+    }
+
+    .pointer {
+        padding: 0 5px;
+        margin-left: 0;
+        font-weight: bold;
+        font-size: $header-fontsize;
+    }
+
+    .entity-name {
+        font-weight: bold;
+        font-size: $header-fontsize;
+        color: #00559B !important;
+    }
+
+    label {
+        margin-bottom: 3px;
+    }
+}
+/* --------End - Mixin Declarations -----------*/
+body {
+    line-height: normal;
+    //background-image: url($images-repository+"page_bg.png");
+    @include page-font();
+}
+
+.content-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+/*----Begin Header styling----*/
+.navbar.navbar-fixed-top {
+    @include liner-gradient3(#1f4f7f, #2063a1, #1f4f7f);
+    height:50px;
+    border-color: #1f4f7f;
+    .navbar-nav {
+        li {
+            @include liner-gradient3(#014487, #024e93, #014487);
+            border-left: $header-menu-border;
+
+            > a {
+                color: $menu-text-color;
+                font-weight: bold;
+
+                &:hover, &:focus {
+                    @include headermenu-hover-focus();
+                }
+            }
+        }
+
+        .dropdown-menu {
+            @include liner-gradient3(#014487, #024e93, #014487);
+
+            li {
+                background: none;
+                border-left: 0px;
+
+                a {
+                    font-weight: normal;
+                }
+            }
+        }
+
+        .open > a {
+            @include headermenu-hover-focus();
+
+            &:hover, &:focus {
+                @include headermenu-hover-focus();
+            }
+        }
+
+        .header-icon {
+            margin: 0 5px;
+        }
+    }
+}
+
+.navbar-fixed-bottom {
+    @include liner-gradient3(#1f4f7f, #2063a1, #1f4f7f);
+    height:50px;
+    border-color: #1f4f7f;
+}
+
+.navbar-brand {
+    padding: 10px;
+}
+
+.dropdown-menu {
+    background-color: $brand-primary;
+
+    li > a {
+        color: $menu-text-color;
+
+        &:hover {
+            @include headermenu-hover-focus();
+        }
+    }
+}
+
+.navbar-toggle .icon-bar {
+    background-color: $menu-text-color;
+}
+/*----End Header styling----*/
+.copyright{
+		padding: 8px 25px;
+		color: $menu-text-color;
+		text-align:right;
+}
+/*----Login Page----*/
+.login-panel {
+    @extend .panel, .panel-primary;
+    margin-top: 19vh;
+
+    > .panel-heading {
+        color: $menu-text-color;
+
+         .panel-title {
+            @include page-font();
+            font-weight: bold;
+        }
+    }
+}
+.form-group {
+    margin-bottom: 7px;
+
+    sup {
+        color: #FF0000;
+        float: left;
+        font: 12px arial;
+        margin-top: 0px;
+        top: 0;
+    }
+
+    label {
+        font-weight: normal;
+    }
+
+    .select2-container {
+        width: 100%;
+
+        .select2-choice {
+            height: 30px;
+            padding: 1px 0 0 8px;
+        }
+    }
+
+    .select2-default {
+        color: #000 !important;
+    }
+}
+
+.form-control {
+    height: 30px;
+}
+.error b{
+	color:red;
+	font-size: 12px;
+	font-family: arial;
+}
+input.ng-valid[required], input.ng-valid.required {
+  border-left: 5px solid #42A948; /* green */
+}
+input.ng-invalid.ng-touched {
+  border-left: 5px solid #a94442; /* red */
+}
+.width100per{
+    width:100%;
+}
+.content-bg{
+    background-color:$content-bg;
+}
+.table thead{
+    background-color: #2F75B3;
+    color: white;
+}
+.left-content{
+    background-color: #EAF5FF;
+	padding-left: 5px!important;
+    padding-right: 5px!important;
+    position:fixed;
+}
+.right-content{
+	background-color: #F9F9F9;
+}
+tbody{
+	background-color: #FFF;
+}
+.top-buttons{
+	height:40px;
+}
+.margin-tb-5{
+	margin:5px 0;
+}
+table{
+    margin-bottom:0!important;
+}
+.table-footer{
+	background-color:#B5D3EC;
+	min-height: 35px;
+}
+//thead, tbody { display: block; }
+
+tbody {
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+.navbar-brand > img{
+		width: 70px;
+	}

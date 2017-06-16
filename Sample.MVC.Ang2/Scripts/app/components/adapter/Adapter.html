@@ -1,0 +1,103 @@
+﻿<div>
+    <div class="col-sm-3 left-content">
+        <table-component [options]="options"
+                         (rowClickEvent)="rowClick($event)"
+                         [renderEvent]="render">
+        </table-component>
+    </div>
+    <div class="top-buttons">
+        <div class="col-sm-2 pull-right margin-tb-5">
+            <button type="button" id="btnCreate" class="btn btn-primary width100per">Create</button>
+        </div>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 right-content" [style.min-height.px]="getContentHeight()">
+        <div class="row content">
+            <!--<div class="col-sm-4 form-group">
+                <label><b>Adapter Name</b></label>
+                <input type="text" name="adaptername" class="form-control" [(ngModel)]="adapter.title"/>
+            </div>
+            <div class="col-sm-offset-1 col-sm-4 form-group">
+                <label><b>Adapter Value</b></label>
+                <input type="text" name="adaptervalue"  class="form-control" [(ngModel)]="adapter.body"/>
+            </div>-->
+            <div class="col-sm-12">
+                <form #f="ngForm" novalidate>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" [(ngModel)]="user.name" required>
+                        </div>
+                        <div class="form-group col-sm-4 col-sm-offset-1">
+                            <label>Age</label>
+                            <input type="number" class="form-control" name="age" [(ngModel)]="user.age" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label>Gender</label>
+                            <div class="radio" *ngFor="let gender of genders">
+                                <label>
+                                    <input type="radio" name="gender" [(ngModel)]="user.gender" [value]="gender.value">
+                                    {{gender.display}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4 col-sm-offset-1">
+                            <label>Role</label>
+                            <select name="role" class="form-control" [(ngModel)]="user.role">
+                                <option *ngFor="let role of roles" [value]="role.value">{{role.display}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="isActive" [(ngModel)]="user.isActive">
+                                    Is Active
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4 col-sm-offset-1">
+                            <label>Topics</label>
+                            <select multiple name="topics" class="form-control" [(ngModel)]="user.topics">
+                                <option *ngFor="let topic of topics" [value]="topic.value">{{topic.display}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" [checked]="user.toggle === toggles[0].value"
+                                           (change)="$event.target.checked? (user.toggle = toggles[0].value) : (user.toggle = toggles[1].value)">
+                                    {{ toggles[0].display }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" (click)="save(f.value, f.valid)" class="btn btn-default">Submit</button>
+                    </div>
+                </form>
+                <div style="margin-top: 20px" *ngIf="f">
+                    <div>Form details:-</div>
+                    <pre>Is form valid?: <br>{{f.valid | json}}</pre>
+                    <pre>Is form submitted?: <br>{{f.submitted | json}}</pre>
+                    <pre>submitted value: <br>{{f.value | json}}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="row bottom-buttons">
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <button type="button" id="btnCancel" class="btn btn-primary width100per">Cancel</button>
+                </div>
+                <div class="col-sm-2 pull-right">
+                    <button type="button" id="btnSave" class="btn btn-primary width100per">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

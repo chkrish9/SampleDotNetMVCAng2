@@ -1,4 +1,7 @@
 ﻿<div>
     <header-component [isLogedIn]="isAuthenticate" [username]="user"></header-component>
+    <div class="content-container" [style.min-height.px]="getContentHeight()">
+        <router-outlet></router-outlet>
+    </div>
     <footer-component></footer-component>
 </div>

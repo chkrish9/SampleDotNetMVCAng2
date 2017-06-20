@@ -6075,7 +6075,9 @@ tbody {
   margin: 5px 0; }
 
 table {
-  margin-bottom: 0 !important; }
+  margin-bottom: 0 !important;
+  display: block;
+  overflow: auto; }
 
 .table-footer {
   background-color: #B5D3EC;

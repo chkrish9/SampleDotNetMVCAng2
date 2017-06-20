@@ -20,6 +20,9 @@ var ContentComponent = (function () {
     ContentComponent.prototype.setUser = function (value) {
         this.user = value;
     };
+    ContentComponent.prototype.getContentHeight = function () {
+        return $(window).height() - 100;
+    };
     return ContentComponent;
 }());
 ContentComponent = __decorate([

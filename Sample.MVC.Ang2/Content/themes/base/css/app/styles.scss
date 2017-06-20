@@ -272,6 +272,8 @@ tbody{
 }
 table{
     margin-bottom:0!important;
+    display: block;
+    overflow: auto;
 }
 .table-footer{
 	background-color:#B5D3EC;
@@ -285,4 +287,4 @@ tbody {
 }
 .navbar-brand > img{
 		width: 70px;
-	}
+}

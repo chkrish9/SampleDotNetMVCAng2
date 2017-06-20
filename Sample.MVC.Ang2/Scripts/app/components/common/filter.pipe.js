@@ -13,7 +13,7 @@ var FilterByPipe = (function () {
     FilterByPipe.prototype.transform = function (array, prop, propVal) {
         if (!propVal)
             return array;
-        return array && array.filter(function (pet) { return pet[prop] && pet[prop].indexOf(propVal) > -1; });
+        return array && array.filter(function (pet) { return pet[prop] && pet[prop].toString().indexOf(propVal) > -1; });
     };
     return FilterByPipe;
 }());

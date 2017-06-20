@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 			tableColumns: this.tableColumns,
 			url: '/Scripts/App/Components/Home/data.json',
 			isRowFilterEnable: this.isRowFilterEnable,
-			height: $(window).height() - 100,
+			height: $(window).height() - 100 - 35,
 			isRemote: false,
 			data: this.getData()
 		}

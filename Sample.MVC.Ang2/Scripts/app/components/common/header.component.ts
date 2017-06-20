@@ -8,7 +8,4 @@
 export class HeaderComponent {
 	public isLogedIn: boolean;
 	public username: string;
-	getContentHeight() {
-		return $(window).height() - 100;
-	}
 }

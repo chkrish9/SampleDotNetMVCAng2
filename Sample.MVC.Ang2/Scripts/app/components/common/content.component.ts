@@ -16,5 +16,8 @@ export class ContentComponent {
 	}
 	setUser(value: string) {
 		this.user = value;
-	}
+    }
+    getContentHeight() {
+        return $(window).height() - 100;
+    }
 }

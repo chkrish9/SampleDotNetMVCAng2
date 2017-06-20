@@ -53,7 +53,7 @@ export class AdapterComponent implements OnInit {
 			sortBy: this.sortBy,
 			sortOrder: this.sortOrder,
 			tableColumns: this.tableColumns,
-			height: $(window).height() - 100,
+            height: $(window).height() - 100 - 35,
 			url: '/Scripts/App/Components/Home/data.json',
 			isRowFilterEnable: this.isRowFilterEnable,
 			isRemote: true,

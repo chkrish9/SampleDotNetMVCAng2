@@ -10,9 +10,6 @@ var core_1 = require("@angular/core");
 var HeaderComponent = (function () {
     function HeaderComponent() {
     }
-    HeaderComponent.prototype.getContentHeight = function () {
-        return $(window).height() - 100;
-    };
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
